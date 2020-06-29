@@ -8,7 +8,75 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+.menu-header {
+  justify-content: center;
+  position: relative;
+  height: 60px;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.menu-title {
+  font-weight: bold;
+}
+
+.back {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.back:focus {
+  outline: none;
+}
+
+.menu-container {
+  height: calc(100vh - 60px) !important;
+}
+
+.menu-item-link {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu-item-link:hover {
+  background-color: #f1f1f1;
+}
+
+.menu-item-link:active {
+  background-color: #ccc;
+}
+
+.menu-item-link:focus {
+  outline: 0;
+}
+
+.menu-item-button::after {
+  content: '→';
 }

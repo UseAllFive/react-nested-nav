@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-nested-nav'
+import { NestedNav } from 'react-nested-nav'
+import { data } from './data'
 import 'react-nested-nav/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <NestedNav menus={data} />
 }
 
 export default App

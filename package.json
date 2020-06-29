@@ -1,6 +1,6 @@
 {
   "name": "react-nested-nav",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Nested navigatation React component",
   "author": "UseAllFive",
   "license": "MIT",
@@ -49,5 +49,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "framer-motion": "^1.11.1",
+    "prop-types": "^15.7.2"
+  }
 }
