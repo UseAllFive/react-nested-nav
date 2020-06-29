@@ -35,9 +35,9 @@ NestedNav.propTypes = {
 ```jsx
 import React from 'react'
 
-import { NestedNav } from 'nested-nav'
+import { NestedNav } from 'react-nested-nav'
 import { data } from './data' // see data formatting
-import 'nested-nav/dist/index.css' // override CSS
+import 'react-nested-nav/dist/index.css' // custom css
 
 const App = () => {
   return <NestedNav menus={data} />
