@@ -5,7 +5,14 @@ import { data } from './data' // see data formatting
 import 'react-nested-nav/dist/index.css' // custom css
 
 const App = () => {
-  return <NestedNav menus={data} />
+  return (
+    <NestedNav
+      menus={data}
+      onLinkClick={(link) => {
+        console.log(link)
+      }}
+    />
+  )
 }
 
 export default App

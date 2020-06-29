@@ -28,7 +28,8 @@ const ItemsShape = {
 ItemsShape.menu = PropTypes.shape(MenuShape)
 MenuShape.items = PropTypes.arrayOf(PropTypes.shape(ItemsShape))
 NestedNav.propTypes = {
-  menus: PropTypes.shape(MenuShape)
+  menus: PropTypes.shape(MenuShape),
+  onLinkClick: PropTypes.func
 }
 ```
 
@@ -40,7 +41,14 @@ import { data } from './data' // see data formatting
 import 'react-nested-nav/dist/index.css' // custom css
 
 const App = () => {
-  return <NestedNav menus={data} />
+  return (
+    <NestedNav
+      menus={data}
+      onLinkClick={(link) => {
+        console.log(`go to: ${link}`)
+      }}
+    />
+  )
 }
 
 export default App

@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
-const NestedNav = ({ menus }) => {
+const NestedNav = ({ menus, onLinkClick }) => {
   const active = { title: menus.title, id: menus.id }
   const initialState = {
     active: active,
@@ -44,7 +44,7 @@ const NestedNav = ({ menus }) => {
   }
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const Menu = ({ menu }) => {
+  const Menu = ({ menu, onLinkClick }) => {
     // base case
     if (!menu) {
       return null
@@ -88,7 +88,7 @@ const NestedNav = ({ menus }) => {
           {menu.items.map(({ text, link, menu: subMenu }, i) => (
             <li className='menu-item' key={i}>
               {!subMenu ? (
-                <a className='menu-item-link' href={link}>
+                <a className='menu-item-link' onClick={() => onLinkClick(link)}>
                   {text}
                 </a>
               ) : (
@@ -109,7 +109,7 @@ const NestedNav = ({ menus }) => {
         </motion.ul>
         <React.Fragment>
           {menu.items.map(({ menu }, i) => (
-            <Menu key={i} menu={menu} />
+            <Menu key={i} menu={menu} onLinkClick={onLinkClick} />
           ))}
         </React.Fragment>
       </React.Fragment>
@@ -130,9 +130,9 @@ const NestedNav = ({ menus }) => {
       </div>
       <div
         className='menu-container'
-        style={{ position: 'relative', height: 600 }}
+        style={{ position: 'relative', height: 600, overflow: 'hidden' }}
       >
-        <Menu menu={menus} />
+        <Menu menu={menus} onLinkClick={onLinkClick} />
       </div>
     </div>
   )
@@ -152,7 +152,8 @@ ItemsShape.menu = PropTypes.shape(MenuShape)
 MenuShape.items = PropTypes.arrayOf(PropTypes.shape(ItemsShape))
 
 NestedNav.propTypes = {
-  menus: PropTypes.shape(MenuShape)
+  menus: PropTypes.shape(MenuShape),
+  onLinkClick: PropTypes.func
 }
 
 export { NestedNav }
